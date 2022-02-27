@@ -1,3 +1,6 @@
+# BGP
+>Border Gateway Protocol (BGP) est un protocole d'échange de route externe (un EGP), utilisé notamment sur le réseau Internet. Son objectif principal est d'échanger des informations de routage et d'accessibilité de réseaux (appelés préfixes) entre Autonomous Systems (AS).
+
 ![image](https://user-images.githubusercontent.com/83721477/155890654-4eb5e67e-eb3c-4935-bbf9-e8b3c220cd01.png)
 ![image](https://user-images.githubusercontent.com/83721477/155890672-475525ee-2112-4643-bfe7-b302e4dd6379.png)
 ![image](https://user-images.githubusercontent.com/83721477/155890681-c1c4d7e5-99ba-469b-a44d-eb6f3e4208a1.png)
