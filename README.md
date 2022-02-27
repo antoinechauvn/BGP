@@ -13,8 +13,10 @@
 | UPDATE | Ce message permet l'annonce de nouvelles routes ou le retrait de routes |
 | NOTIFICATION | Message de fin de session BGP à la suite d'une erreur |
 | ROUTE-REFRESH | Définie dans la RFC 291819, la capacité de rafraîchissement des routes est négociée dans le message OPEN et permet de demander/réannoncer certains préfixes après une modification de la politique de filtrage |
-    
-    
+
+#### Un Interior gateway protocol (IGP) est un protocole de routage utilisé dans les systèmes autonomes. 
+![image](https://user-images.githubusercontent.com/83721477/155891595-fc7f7ae7-a8f4-444a-b608-c6505910288e.png)
+
 ![image](https://user-images.githubusercontent.com/83721477/155890654-4eb5e67e-eb3c-4935-bbf9-e8b3c220cd01.png)
 ![image](https://user-images.githubusercontent.com/83721477/155890672-475525ee-2112-4643-bfe7-b302e4dd6379.png)
 ![image](https://user-images.githubusercontent.com/83721477/155890681-c1c4d7e5-99ba-469b-a44d-eb6f3e4208a1.png)
