@@ -1,6 +1,17 @@
 # BGP
 >Border Gateway Protocol (BGP) est un protocole d'échange de route externe (un EGP), utilisé notamment sur le réseau Internet. Son objectif principal est d'échanger des informations de routage et d'accessibilité de réseaux (appelés préfixes) entre Autonomous Systems (AS).
 
+
+### Messages du protocole BGP
+| Message | Description |
+| --- | --- |
+| OPEN | Ce message est utilisé dès que la connexion TCP est établie entre les voisins BGP, il permet d'échanger des informations telles que les numéros d'AS respectifs et les router ID de chacun, et de négocier les capacités de chacun des pairs |
+| KEEPALIVE | Maintient la session ouverte. Par défaut le message KEEPALIVE est envoyé toutes les 30 secondes, et un délai de 90 secondes sans message UPDATE ni KEEPALIVE reçu entraîne la fermeture de la session |
+| UPDATE | Ce message permet l'annonce de nouvelles routes ou le retrait de routes |
+| NOTIFICATION | Message de fin de session BGP à la suite d'une erreur |
+| ROUTE-REFRESH | Définie dans la RFC 291819, la capacité de rafraîchissement des routes est négociée dans le message OPEN et permet de demander/réannoncer certains préfixes après une modification de la politique de filtrage |
+    
+    
 ![image](https://user-images.githubusercontent.com/83721477/155890654-4eb5e67e-eb3c-4935-bbf9-e8b3c220cd01.png)
 ![image](https://user-images.githubusercontent.com/83721477/155890672-475525ee-2112-4643-bfe7-b302e4dd6379.png)
 ![image](https://user-images.githubusercontent.com/83721477/155890681-c1c4d7e5-99ba-469b-a44d-eb6f3e4208a1.png)
