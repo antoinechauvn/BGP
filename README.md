@@ -28,5 +28,4 @@
 |10|  Router ID    | Les routes provenant de peer BGP avec un routeur_ID le plus petit sont préférées |
 |11| Neighbor ADDR | Utiliser le chemin qui vient du voisin avec l'IP la plus petite |
 
-#### Un Interior gateway protocol (IGP) est un protocole de routage utilisé dans les systèmes autonomes. 
 ![image](https://user-images.githubusercontent.com/83721477/155890858-0aa65ffd-9e58-4ea1-aa3b-a370750fe46f.png)
