@@ -26,6 +26,7 @@
 
 ![image](https://user-images.githubusercontent.com/83721477/157687202-f44a3d02-6922-4d77-a865-c29e35f92c91.png)
 
+### Choix du plus court chemin BGP
 | N° | Attribut | Description |
 | --- | --- | --- |
 |1| WEIGHT | Le plus grand |
