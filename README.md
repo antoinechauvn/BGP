@@ -14,6 +14,18 @@
 | NOTIFICATION | Message de fin de session BGP à la suite d'une erreur |
 | ROUTE-REFRESH | Définie dans la RFC 291819, la capacité de rafraîchissement des routes est négociée dans le message OPEN et permet de demander/réannoncer certains préfixes après une modification de la politique de filtrage |
 
+
+![image](https://user-images.githubusercontent.com/83721477/157686483-14889e10-23ff-4422-b21e-16dc84956eee.png)
+![image](https://user-images.githubusercontent.com/83721477/157686424-c2b8f6dc-4d93-4c97-9dbb-8f1bc16f9ef9.png)
+![image](https://user-images.githubusercontent.com/83721477/157686562-7aff2376-b3a5-4392-a671-9ce7cc4af543.png)
+![image](https://user-images.githubusercontent.com/83721477/157687092-26f74e9f-f7fc-4615-9ddd-5cf192d97e3f.png)
+![image](https://user-images.githubusercontent.com/83721477/157686621-69ea62f0-a437-4498-9ffc-3f9549815e82.png)
+![image](https://user-images.githubusercontent.com/83721477/157686637-1cfd298c-8eb0-457b-b236-6ce211ddf301.png)
+![image](https://user-images.githubusercontent.com/83721477/157686901-cec996ba-b607-4b7c-9323-4963df3168ff.png)
+
+
+![image](https://user-images.githubusercontent.com/83721477/157687202-f44a3d02-6922-4d77-a865-c29e35f92c91.png)
+
 | N° | Attribut | Description |
 | --- | --- | --- |
 |1| WEIGHT | Le plus grand |
