@@ -44,5 +44,11 @@
 
 ![image](https://user-images.githubusercontent.com/83721477/155890858-0aa65ffd-9e58-4ea1-aa3b-a370750fe46f.png)
 
+## Vulnérabilités
+
+
+
+
+https://www.youtube.com/watch?v=oHiZobxnO_o
 
 ###### © Ecole Nationale Supérieure d'Informatique d'Alger, AFNOG, Wikipedia
