@@ -1,0 +1,123 @@
+--------------------------------------------------------
+            BGP (Border Gateway Protocol)
+--------------------------------------------------------
+Accès internet --> ISP (Internet Service Provider)
+
+-AS: Autonomous System
++Entité unique (FAI, Banque, Education)
++Ensemble de routeurs
++Un As peut être connecté à plusieurs autres AS par plusieurs liaisons/routeurs
+
+-NEIGHBOR: Routeur avec qui on a une session BGP
+
+-NLRI/Préfixe: Informations concernant l’accessibilité (ou pas) d’une route (réseau + masque)
++Les voisins BGP s’échangent des messages contenant des préfixes (NLRI)
+
+-TRANSIT: transport de vos données par unréseau tiers, en général moyennant paiement
+
+-PEERING: accord bi-latéral d’échange de trafic
++Chacun annonce uniquement ses propres réseaux et ceux de ses clients à son voisin
+
+-DEFAULT: route par défaut, où envoyer un paquet si la table de routage de donne aucune information plus précise.
+
+Routage entre AS:
+-IGP: Interior Gateway Protocol
++Au sein d'un AS
+
+-EGP: Exterior Gateway Protocol
++Permet l'échange d'information de routage entre AS
+
+Sessions BGP:
+-iBGP: Interior Border Gateway Protocol
++Aiguiller le trafic sortant de votre réseau vers vos bordures
++Les voisins iBGP peuvent ne pas être directement connectés
+
+-eBGP: External Border Gateway Protocol
++Généralement utilisé pour l'interconnexion des réseaux de différentes organisations ou de l'Internet mondial.
++Ces organisations peuvent être des fournisseurs de services Internet (FAI), des universités ou de grandes entreprises qui disposent d'une vaste infrastructure réseau.
++Pour qu'EBGP fonctionne, chaque AS doit implémenter BGP pour les communications internes.
+
+Note: Vous utilisez BGP parce que vous ne voulez pas transporter toute votre table de routage Internet dans votre IGP (c'est-à-dire dans mon cas, OSPF).
+OSPF n'a pas été conçu pour gérer plusieurs milliers de routes dans les tables BGP Internet... si vous essayez d'utiliser OSPF à cette fin, cela cassera votre réseau.
+
+Protocole de routage externe --> Routage de politique
+Le protocole de routage externe va permettre l'échange entre ces routeurs de bordure des réseaux contenues dans les AS
+Propagation des routes apprises depuis d'autres AS
+
+-BGP: Border Gateway Protocol
++Routage interdomaine utilisé partout dans le monde
++Fonctionnement sur très grands réseaux
++Protocole standard (interopérabilité)
++Communique sur le port 179 TCP
++protocole Path Vector (180.10.0.0:16 300 400 500 600)
+                                        |---> AS-PATH
++Chemin le plus court en terme d'AS (best-path)
+
+-AS de transit: Message sur l'interconnexion entre par un routeur et sortent par un routeur de bordure.
+
+
+--------------------------------------------------------
+            MESSAGES BGP
+--------------------------------------------------------
+
+TOUT LES MESSAGES SONT UNICAST
+
+-OPEN: Lorsque la session est établie pour une identification initale des peers
+
+-UPDATE: Mise à jour en cas de modification de topologie
+
+-KEEPALIVE: Message régulier permettant de signaler le fonctionnement du routeur
++Envoie toute les 30 secondes (Cisco: 60s)
++Si 3 KEEPALIVE consécutifs sont absents, le routeur est en panne
+
+
+--------------------------------------------------------
+            PARAMETRES BGP
+--------------------------------------------------------
+
+-AS-PATH: Liste des AS afin d'arriver à une destination.
++180.10.0.0:16 300 400 500 600
+
+-NEXT-HOP: Adresse IP à contacter sur le prochain AS afin d'aller vers une destination précise
++Example à fournir ici
+
+-ORIGIN: Indique la source de l'information du chemin (externe ou interne)
++Contenu dans la table BGP
++Interne correspondra à la lettre "i"
+++Cela signifie que le réseau à été annoncé sois même dans BGP
+
++Externe correspondra à la lettre "e"
+++Cela signifie que la route à été apprise par un EGP (Protocole Deprecated)
+
+-LOCAL_PREF: Préférence Locale, indique le chemin de sortie préféré parmis plusieurs routes possible
++Un chemin avec une préférence locale élévée est prioritaire
++Valeur par défaut: 100
++Valeur locale partagé entre iBGP
+
+-MED: Multiple Exit Discriminator ou Metric
++Forcer un routeur externe à un AS (eBGP) de choisir un chemin particulier pour joindre un réseau de l'AS
++Un MED petit est préféré à un grand MED
++Le MED est envoyé aux pairs eBGP. Ce dernier le repasse à ses iBGP
++Les routeurs iBGP à l'intérieur de l'AS peuvent utiliser le MED mais ne peuvent pas l'envoyer au prochain AS
+
+-WEIGHT: attribut propriétaire CISCO
++Utilisation similaire à la LOCAL_PREF
++On utilise Weight si un routeur a plusieurs sorties
++Le plus grand Weight est le meilleure (0-65535)
+
+
+--------------------------------------------------------
+            BEST-PATH
+--------------------------------------------------------
+
+1|  WEIGHT        | Le plus grand                                |
+2|  LOCAL_PREF    | La plus grande                               |
+3|Local originated| Préférence pour les routes apprise localement|
+4|  AS-PATH       | Le plus court                                |
+5|  ORIGIN        | IGP < EGP < ?(Incomplète)                    |
+6|    MED         | Routes avec le plus petit MED                |
+7|  eBGP ou iBGP  | Préférence à des routes eBGP plutôt que iBGP |
+8|  NEXT-HOP      | Les routes qui passent par le voisin avec le cout le plus faible |
+9| eBGP Path Age  | Les routes les plus anciennes                |
+10|  Router ID    | Les routes provenant de peer BGP avec un routeur_ID le plus petit sont préférées |
+11| Neighbor ADDR | Utiliser le chemin qui vient du voisin avec l'IP la plus petite |
